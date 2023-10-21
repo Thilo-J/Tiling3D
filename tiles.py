@@ -213,3 +213,7 @@ def get_tiles_by_name(names:list[str]) -> list[Tile]:
         if tile.name in names:
             tiles.append(tile)
     return tiles
+
+
+def all_tiles():
+    return TILES

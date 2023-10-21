@@ -1,16 +1,15 @@
 import numpy as np
 
 class Tile:
-    def __init__(self, name:str, color:str, form:np.ndarray):
+    def __init__(self, name:str, color:str, form:np.array):
         self.name = name
         self.color = color
         self.form = np.array(form, dtype=bool)
 
 class Board:
-    def __init__(self, name:str, form:np.ndarray, height:int):
+    def __init__(self, name:str, form:np.array):
         self.name = name
-        self.form = np.array([form] * height, dtype=bool)
-        self.height = height
+        self.form = np.array(form, dtype=bool)
 
 class TilingProblem:
     def __init__(self, tiles: list[Tile], board: Board, name: str = ""):

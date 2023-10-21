@@ -4,17 +4,14 @@ import exact_cover as ec
 from matplotlib import patches
 import numpy as np
 import matplotlib.pyplot as plt
+import dxz as dx
 from tiling_objects import TilingProblem, TilingSolution, SolutionTile
-import algorithm_x as ax
 import random
-import argparse
-import json_reader
-
 
 def create_exact_cover_matrix(problem: TilingProblem) -> tuple[list[SolutionTile], list[list[bool]]]:
     
     def create_row(tile: np.ndarray, board_shape: tuple[int,int,int], pos: tuple[int, int, int], unique_tiles: int, unique_tile_index: int, tile_name: str, tile_color) -> tuple[SolutionTile, list[bool]]:
-        # create the row
+        # Create the row
         size = board_shape[0] * board_shape[2] * board_shape[1]
         extended_tile = np.zeros(board_shape, dtype=bool)
         extended_tile[pos[0]:tile.shape[0] + pos[0], pos[1]:tile.shape[1] + pos[1] , pos[2]:tile.shape[2] + pos[2]] = tile
@@ -22,7 +19,7 @@ def create_exact_cover_matrix(problem: TilingProblem) -> tuple[list[SolutionTile
         row.extend([False] * unique_tiles)
         row[size + unique_tile_index] = True
 
-        # create the row_name for the row
+        # Create the row_name for the row
         tile_is_1 = np.where(extended_tile == 1)
         listOfCoordinates = tuple(zip(tile_is_1[2], tile_is_1[1], tile_is_1[0]))
         solution_tile = SolutionTile(tile_name, tile_color, listOfCoordinates)
@@ -49,15 +46,18 @@ def create_exact_cover_matrix(problem: TilingProblem) -> tuple[list[SolutionTile
         yield from rotations4(np.rot90(polycube, axes=(0,1)), (0,2))
         yield from rotations4(np.rot90(polycube, -1, axes=(0,1)), (0,2))
 
-    # the 2 lists that will be returned at the end
+    # The 2 lists that will be returned at the end
     solutiion_tiles = []
     exact_cover_matrix = []
 
     board_constraint = problem.board.form.flatten().tolist()
     board_constraint.extend([False] * len(problem.tiles))
 
-    # tile rows
+    # Create the matrix
+
+    # Loop over each tile
     for i, tile in enumerate(problem.tiles):
+        # Rotate tile in all 24 possible rotations
         for tile_rot in rotations24(tile.form):
             for x in range(problem.board.form.shape[0]):
                 if tile_rot.shape[0] + x > problem.board.form.shape[0]: break
@@ -78,7 +78,7 @@ def create_exact_cover_matrix(problem: TilingProblem) -> tuple[list[SolutionTile
         exact_cover_matrix.append(tile_not_used_row)
     exact_cover_matrix = np.array(exact_cover_matrix, dtype="int32")
 
-    # remove columns tha the board covers
+    # Remove columns tha the board covers
     cols_to_be_deleted = []
     for i in range(len(board_constraint)):
         if(board_constraint[i]):
@@ -100,43 +100,21 @@ def get_single_solution(problem: TilingProblem) -> TilingSolution:
 
 def dxz_solve(problem: TilingProblem) -> list[TilingSolution]:
     solution_tiles, exact_cover_matrix = create_exact_cover_matrix(problem)
-    np.savetxt("matrix.csv", exact_cover_matrix, delimiter=",", fmt='%1.0f')
-
-    subprocess.check_call(['my_dxz.exe'])
     
+    number_of_rows = exact_cover_matrix.shape[0]
+    number_of_collumns = exact_cover_matrix.shape[1]
+    flat = exact_cover_matrix.flatten()
 
+    all_solutions_indices = dx.dxz_solve(number_of_rows, number_of_collumns, flat)
 
-    solutions_indexes = np.genfromtxt("solution.csv", delimiter=',', dtype="int32")
-    if solutions_indexes.size == 0: return []
-    if solutions_indexes.ndim == 1:
-        solutions_indexes = np.expand_dims(solutions_indexes, axis=0)
     solutions = []
-    solution = []
-    for s in solutions_indexes:
-        for i in s:
-            solution.append(solution_tiles[i])
-        solutions.append(TilingSolution(solution, problem.board, problem.name))
+
+    for indices in all_solutions_indices:
         solution = []
-    return solutions
+        for index in indices:
+            solution.append(solution_tiles[index])
+        solutions.append(TilingSolution(solution, problem.board, problem_name=problem.name))
 
-
-def python_solve(problem: TilingProblem) -> list[TilingSolution]:
-    solution_tiles, exact_cover_matrix = create_exact_cover_matrix(problem)
-    X = list(range(len(exact_cover_matrix[0])))
-    Y = {}
-    for i, name in enumerate(solution_tiles):
-        l = []
-        for j, b, in enumerate(exact_cover_matrix[i]):
-            if b:
-                l.append(j)
-        Y[name] = l
-    
-    X = {j: set(filter(lambda i: j in Y[i], Y)) for j in X}
-
-    list_solutions = list(ax.solve(X, Y, solution=[]))
-    solutions = []
-    for solution in list_solutions:
-        solutions.append(TilingSolution(solution, problem.board, problem.name))
     return solutions
 
     
@@ -191,27 +169,6 @@ def plot_solution(solution: TilingSolution) -> None:
 
     plt.show()
 
-
-def solve_given_problem(file_name: str, all: bool=False):
-    problem = json_reader.get_problem_by_file_name(file_name)
-
-    if all:
-        solutions = dxz_solve(problem)
-        random.shuffle(solutions)
-        print("Solutions found:", len(solutions))
-        for s in solutions:
-            plot_solution(s)
-    else:
-        solution = get_single_solution(problem)
-        plot_solution(solution)
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--file', '-f', help="file name", type= str)
-    parser.add_argument('--all', '-a', help="show all solutions", type= str, default= "False")
-    args = parser.parse_args()
-    solve_given_problem(args.file, args.all)
 
 
 

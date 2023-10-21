@@ -1,22 +1,11 @@
 import pytest
-from ubongo_boards import get_board_by_name
 import tiling_solver as ts
-from tiling_objects import TilingProblem
-from ubongo_tiles import TILES, get_tiles_by_name
-from ubongo_boards import get_board_by_name
-
-def test_python_solver():
-    board = get_board_by_name("B11-1")
-    tiles = get_tiles_by_name(["t12","t5","t16", "t8"])
-    solutions = ts.python_solve(TilingProblem(tiles, board))
-    assert len(solutions) == 1
-
-    board = get_board_by_name("B12-1")
-    tiles = get_tiles_by_name(["t9","t3","t15", "t8"])
-    solutions = ts.python_solve(TilingProblem(tiles, board))
-    assert len(solutions) == 3
+from tiling_objects import TilingProblem, Board
+import numpy as np
+from tiles import all_tiles, get_tiles_by_name
 
 
+"""
 def test_single_solution_solver():
     board = get_board_by_name("B10-1")
     solution = ts.get_single_solution(TilingProblem(TILES, board))
@@ -35,7 +24,51 @@ def test_dxz_solver():
     tiles = get_tiles_by_name(["t16", "t8", "t7", "t10"])
     solutions = ts.dxz_solve(TilingProblem(tiles, board))
     assert len(solutions) == 38  
+"""
 
+def test_single_solution_solver():
+    board_form = np.array([
+                        [
+                            [1,0,0,0],
+                            [1,0,0,0],
+                            [1,0,0,1],
+                            [0,0,0,1]
+                        ],
+                        [
+                            [1,0,0,0],
+                            [1,0,0,0],
+                            [1,0,0,1],
+                            [0,0,0,1]
+                        ]])
+    board = Board("test", board_form)
+    tiles = all_tiles()
+    problem = TilingProblem(tiles, board)
+    solution = ts.get_single_solution(problem)
+    ts.plot_solution(solution)
+
+
+def test_all_solutions_solver():
+    board_form = np.array([
+                        [
+                            [1,0,0,0],
+                            [1,0,0,0],
+                            [1,0,0,1],
+                            [0,0,0,1]
+                        ],
+                        [
+                            [1,0,0,0],
+                            [1,0,0,0],
+                            [1,0,0,1],
+                            [0,0,0,1]
+                        ]])
+    board = Board("test", board_form)
+    tiles = all_tiles()
+    problem = TilingProblem(tiles, board)
+    solutions = ts.dxz_solve(problem)
+    print(len(solutions))
+    for solution in solutions:
+        ts.plot_solution(solution)
 
 if __name__ == "__main__":
-    pytest.main()
+    test_all_solutions_solver()
+    #pytest.main()

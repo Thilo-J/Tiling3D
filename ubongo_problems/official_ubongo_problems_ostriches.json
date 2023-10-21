@@ -1,0 +1,282 @@
+[
+    {
+        "name": "Ostrich-A17-1-12",
+        "board": "A17-1",
+        "tiles": ["t4", "t5", "t16"]
+    },
+    {
+        "name": "Ostrich-A17-1-34",
+        "board": "A17-1",
+        "tiles": ["t1", "t16", "t7"]
+    },
+    {
+        "name": "Ostrich-A17-2-567",
+        "board": "A17-2",
+        "tiles": ["t3", "t9", "t1"]
+    },
+    {
+        "name": "Ostrich-A17-2-8910",
+        "board": "A17-2",
+        "tiles": ["t7", "t13", "t3"]
+    },
+    {
+        "name": "Ostrich-B17-1-1",
+        "board": "B17-1",
+        "tiles": ["t7", "t5", "t14", "t8"]
+    },
+    {
+        "name": "Ostrich-B17-1-2",
+        "board": "B17-1",
+        "tiles": ["t9", "t16", "t14", "t3"]
+    },
+    {
+        "name": "Ostrich-B17-1-3",
+        "board": "B17-1",
+        "tiles": ["t15", "t16", "t9", "t14"]
+    },
+    {
+        "name": "Ostrich-B17-1-4",
+        "board": "B17-1",
+        "tiles": ["t4", "t13", "t8", "t14"]
+    },
+    {
+        "name": "Ostrich-B17-1-5",
+        "board": "B17-1",
+        "tiles": ["t3", "t16", "t13", "t11"]
+    },
+    {
+        "name": "Ostrich-B17-2-6",
+        "board": "B17-2",
+        "tiles": ["t3", "t1", "t7", "t16"]
+    },
+    {
+        "name": "Ostrich-B17-2-7",
+        "board": "B17-2",
+        "tiles": ["t13", "t3", "t5", "t16"]
+    },
+    {
+        "name": "Ostrich-B17-2-8",
+        "board": "B17-2",
+        "tiles": ["t7", "t3", "t2", "t15"]
+    },
+    {
+        "name": "Ostrich-B17-2-9",
+        "board": "B17-2",
+        "tiles": ["t6", "t10", "t11", "t16"]
+    },
+    {
+        "name": "Ostrich-B17-2-10",
+        "board": "B17-2",
+        "tiles": ["t16", "t7", "t3", "t13"]
+    },
+    {
+        "name": "Ostrich-A18-1-12",
+        "board": "A18-1",
+        "tiles": ["t7", "t11", "t16"]
+    },
+    {
+        "name": "Ostrich-A18-1-34",
+        "board": "A18-1",
+        "tiles": ["t1", "t12", "t7"]
+    },
+    {
+        "name": "Ostrich-A18-2-567",
+        "board": "A18-2",
+        "tiles": ["t7", "t3", "t6"]
+    },
+    {
+        "name": "Ostrich-A18-2-8910",
+        "board": "A18-2",
+        "tiles": ["t16", "t11", "t9"]
+    },
+    {
+        "name": "Ostrich-B18-1-1",
+        "board": "B18-1",
+        "tiles": ["t9", "t10", "t3", "t6"]
+    },
+    {
+        "name": "Ostrich-B18-1-2",
+        "board": "B18-1",
+        "tiles": ["t3", "t5", "t6", "t10"]
+    },
+    {
+        "name": "Ostrich-B18-1-3",
+        "board": "B18-1",
+        "tiles": ["t1", "t11", "t10", "t3"]
+    },
+    {
+        "name": "Ostrich-B18-1-4",
+        "board": "B18-1",
+        "tiles": ["t9", "t11", "t8", "t14"]
+    },
+    {
+        "name": "Ostrich-B18-1-5",
+        "board": "B18-1",
+        "tiles": ["t6", "t9", "t5", "t8"]
+    },
+    {
+        "name": "Ostrich-B18-2-6",
+        "board": "B18-2",
+        "tiles": ["t2", "t10", "t16", "t6"]
+    },
+    {
+        "name": "Ostrich-B18-2-7",
+        "board": "B18-2",
+        "tiles": ["t10", "t16", "t2", "t9"]
+    },
+    {
+        "name": "Ostrich-B18-2-8",
+        "board": "B18-2",
+        "tiles": ["t6", "t3", "t7", "t16"]
+    },
+    {
+        "name": "Ostrich-B18-2-9",
+        "board": "B18-2",
+        "tiles": ["t16", "t5", "t3", "t13"]
+    },
+    {
+        "name": "Ostrich-B18-2-10",
+        "board": "B18-2",
+        "tiles": ["t16", "t5", "t3", "t13"]
+    },
+    {
+        "name": "Ostrich-A19-1-12",
+        "board": "A19-1",
+        "tiles": ["t10", "t13", "t9"]
+    },
+    {
+        "name": "Ostrich-A19-1-34",
+        "board": "A19-1",
+        "tiles": ["t5", "t16", "t9"]
+    },
+    {
+        "name": "Ostrich-A19-2-567",
+        "board": "A19-2",
+        "tiles": ["t9", "t16", "t2"]
+    },
+    {
+        "name": "Ostrich-A19-2-8910",
+        "board": "A19-2",
+        "tiles": ["t13", "t10", "t9"]
+    },
+    {
+        "name": "Ostrich-B19-1-1",
+        "board": "B19-1",
+        "tiles": ["t9", "t14", "t3", "t10"]
+    },
+    {
+        "name": "Ostrich-B19-1-2",
+        "board": "B19-1",
+        "tiles": ["t8", "t13", "t9", "t5"]
+    },
+    {
+        "name": "Ostrich-B19-1-3",
+        "board": "B19-1",
+        "tiles": ["t1", "t9", "t14", "t8"]
+    },
+    {
+        "name": "Ostrich-B19-1-4",
+        "board": "B19-1",
+        "tiles": ["t9", "t5", "t16", "t10"]
+    },
+    {
+        "name": "Ostrich-B19-1-5",
+        "board": "B19-1",
+        "tiles": ["t10", "t6", "t9", "t12"]
+    },
+    {
+        "name": "Ostrich-B19-2-6",
+        "board": "B19-2",
+        "tiles": ["t16", "t5", "t13", "t15"]
+    },
+    {
+        "name": "Ostrich-B19-2-7",
+        "board": "B19-2",
+        "tiles": ["t16", "t1", "t7", "t10"]
+    },
+    {
+        "name": "Ostrich-B19-2-8",
+        "board": "B19-2",
+        "tiles": ["t7", "t14", "t10", "t3"]
+    },
+    {
+        "name": "Ostrich-B19-2-9",
+        "board": "B19-2",
+        "tiles": ["t5", "t7", "t16", "t10"]
+    },
+    {
+        "name": "Ostrich-B19-2-10",
+        "board": "B19-2",
+        "tiles": ["t5", "t9", "t14", "t8"]
+    },
+    {
+        "name": "Ostrich-A20-1-12",
+        "board": "A20-1",
+        "tiles": ["t9", "t1", "t10"]
+    },
+    {
+        "name": "Ostrich-A20-1-34",
+        "board": "A20-1",
+        "tiles": ["t10", "t5", "t9"]
+    },
+    {
+        "name": "Ostrich-A20-2-567",
+        "board": "A20-2",
+        "tiles": ["t12", "t9", "t2"]
+    },
+    {
+        "name": "Ostrich-A20-2-8910",
+        "board": "A20-2",
+        "tiles": ["t10", "t7", "t6"]
+    },
+    {
+        "name": "Ostrich-B20-1-1",
+        "board": "B20-1",
+        "tiles": ["t16", "t10", "t9", "t13"]
+    },
+    {
+        "name": "Ostrich-B20-1-2",
+        "board": "B20-1",
+        "tiles": ["t2", "t6", "t10", "t3"]
+    },
+    {
+        "name": "Ostrich-B20-1-3",
+        "board": "B20-1",
+        "tiles": ["t16", "t3", "t6", "t9"]
+    },
+    {
+        "name": "Ostrich-B20-1-4",
+        "board": "B20-1",
+        "tiles": ["t10", "t16", "t7", "t9"]
+    },
+    {
+        "name": "Ostrich-B20-1-5",
+        "board": "B20-1",
+        "tiles": ["t5", "t13", "t8", "t9"]
+    },
+    {
+        "name": "Ostrich-B20-2-6",
+        "board": "B20-2",
+        "tiles": ["t14", "t6", "t3", "t16"]
+    },
+    {
+        "name": "Ostrich-B20-2-7",
+        "board": "B20-2",
+        "tiles": ["t16", "t9", "t12", "t5"]
+    },
+    {
+        "name": "Ostrich-B20-2-8",
+        "board": "B20-2",
+        "tiles": ["t15", "t14", "t6", "t10"]
+    },
+    {
+        "name": "Ostrich-B20-2-9",
+        "board": "B20-2",
+        "tiles": ["t14", "t3", "t16", "t9"]
+    },
+    {
+        "name": "Ostrich-B20-2-10",
+        "board": "B20-2",
+        "tiles": ["t16", "t5", "t7", "t3"]
+    }
+]

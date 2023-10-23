@@ -1,33 +1,63 @@
+from dataclasses import dataclass, field
 import numpy as np
 
+@dataclass
 class Tile:
-    def __init__(self, name:str, color:str, form:np.array):
-        self.name = name
-        self.color = color
-        self.form = np.array(form, dtype=bool)
+    """
+    A class to represent a Tile.
 
-class Board:
-    def __init__(self, name:str, form:np.array):
-        self.name = name
-        self.form = np.array(form, dtype=bool)
+    Args:
+        name (str): Name of the tile.
+        color (str): The color of the tile (for example: #fc03d2).
+        form (np.array): A 3D array of the form.
+    
+    """
+    name: str
+    color: str
+    coordinates: list[tuple[int, int, int]]
 
-class TilingProblem:
-    def __init__(self, tiles: list[Tile], board: Board, name: str = ""):
-        self.name = name
-        self.tiles = tiles
-        self.board = board
-        self.solutions = []
+@dataclass
+class ShapeToFill:
+    """
+    A class to represent a cuboid with some part filled in.
 
-class SolutionTile:
-    def __init__(self, name:str, color:str, coordinates:list[tuple[int, int, int]]):
-        self.name = name
-        self.color = color
-        self.coordinates = coordinates
+    Args:
+        name (str): Name of the cuboid
+        form (np.array): A 3D array of the cuboid with 1s indicating that that part is filled in.
+    
+    """
+    name: str
+    form: np.array
 
+
+@dataclass
 class TilingSolution:
-    def __init__(self, solution_tiles:list[SolutionTile], board:Board, problem_name:str = ""):
-        self.solution_tiles = solution_tiles
-        self.board = board
-        self.problem_name = problem_name
-        self.images: list[str] = []
+    """
+    A class to represent a solution to a given TilingProblem
 
+    Args:
+        color (str): The color of the polyomino (for example: #fc03d2).
+        form (np.array): A 3D array of the form.
+        name (str): Name of the solution.
+    
+    """
+    solution_tiles: list[Tile]
+    board: ShapeToFill
+    name:str = ""
+
+@dataclass
+class TilingProblem:
+    """
+    A class to represent a tiling problem
+
+    Args:
+        tiles (list[Tile]): A list of tiles that can be used to fill the shape
+        shape (ShapeToFill): A cuboid with some parts already filled where the tiles need to fill in the rest of the cuboid.
+        solutions: (list[TilingSolution]): Possible solutions.
+        name (str): Name of the problem.
+    
+    """
+    tiles: list[Tile]
+    shape: ShapeToFill
+    solutions: list[TilingSolution] = field(default_factory=list)
+    name: str = ""

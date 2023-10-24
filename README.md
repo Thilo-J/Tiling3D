@@ -46,7 +46,7 @@ for solution in soltions:
 ```
 
 <p align="center">
-  <img src="https://github.com/Thilo-J/Tiling3D/blob/900ac7e43571cef5a449b4a604ef13a8b26224c9/tiling_solution.png" 
+  <img src="https://raw.githubusercontent.com/Thilo-J/Tiling3D/900ac7e43571cef5a449b4a604ef13a8b26224c9/tiling_solution.png" 
   alt="tiling_solutions"/>
 </p>
 

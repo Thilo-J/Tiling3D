@@ -12,7 +12,7 @@ pip install tiling3d
 
 ## Usage
 
-Create a cuboid with some parts filled in. The create tiles or use tiles from tiles.py  
+Create a cuboid with some parts filled in. The create tiles or use tiles from tiles.py.
 
 ```python
 import numpy as np
@@ -46,7 +46,7 @@ for solution in soltions:
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Thilo-J/Tiling3D/main/tiling_solution.png?token=GHSAT0AAAAAACHSRLE5II7K4ANWRLJZOKVWZJXV34A" alt="tilinng_solutions"/>
+  <img src="https://raw.githubusercontent.com/Thilo-J/Tiling3D/main/tiling_solution.png?token=GHSAT0AAAAAACHSRLE4N3A7RPZ34QVTD6QEZJXX6PQ" alt="tiling_solutions"/>
 </p>
 
 ## Contributing

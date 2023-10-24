@@ -1,7 +1,7 @@
 import exact_cover as ec
 import numpy as np
 import dxz
-from tiling_objects import TilingProblem, TilingSolution, Tile
+from tiling3d.tiling_objects import TilingProblem, TilingSolution, Tile
 
 
 def create_exact_cover_matrix(problem: TilingProblem) -> tuple[list[Tile], list[list[bool]]]:
@@ -113,7 +113,7 @@ def get_single_solution(problem: TilingProblem) -> TilingSolution:
     return TilingSolution(solution, problem.shape, name=problem.name)
 
 
-def dxz_solve(problem: TilingProblem, max_solutions = 0) -> list[TilingSolution]:
+def get_all_solutions(problem: TilingProblem, max_solutions = 0) -> list[TilingSolution]:
     """Uses dxz to calculate all solutions to a given TilingProblem
 
     Args:
@@ -143,7 +143,7 @@ def dxz_solve(problem: TilingProblem, max_solutions = 0) -> list[TilingSolution]
     return solutions
 
 
-def dxz_count(problem: TilingProblem) -> int:
+def count_solutions(problem: TilingProblem) -> int:
     """Returns the number of possible solutions.
 
     Args:

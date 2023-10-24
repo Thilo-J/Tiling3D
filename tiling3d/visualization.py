@@ -1,6 +1,6 @@
 from matplotlib import patches, pyplot as plt
 import numpy as np
-from tiling_objects import TilingSolution
+from tiling3d.tiling_objects import TilingSolution
 
 
 def plot_solution(solution: TilingSolution) -> None:

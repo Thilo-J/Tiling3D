@@ -1,7 +1,8 @@
 import pytest
-import tiling_solver as ts
-from tiling_objects import TilingProblem, ShapeToFill
 import numpy as np
+
+import tiling_solver as ts
+from tiling_objects import TilingProblem, Cuboid
 from tiles import get_all_tiles, get_tiles_by_name
 
 def test_single_solution_solver():
@@ -37,7 +38,7 @@ def test_dxz_solver():
         ]
     ]))
     tiles = get_all_tiles()[0:16]
-    solutions = ts.dxz_solve(TilingProblem(tiles, board))
+    solutions = ts.get_all_solutions(TilingProblem(tiles, board))
     assert len(solutions) == 300
 
     board = ShapeToFill("B4-1", np.array([
@@ -53,7 +54,7 @@ def test_dxz_solver():
         ]
     ]))
     tiles = get_tiles_by_name(["t16", "t8", "t14", "t10"])
-    solutions = ts.dxz_solve(TilingProblem(tiles, board))
+    solutions = ts.get_all_solutions(TilingProblem(tiles, board))
     assert len(solutions) == 10
 
     board = ShapeToFill("B1-1", np.array([
@@ -69,7 +70,7 @@ def test_dxz_solver():
         ]
     ]))
     tiles = get_tiles_by_name(["t16", "t8", "t7", "t10"])
-    solutions = ts.dxz_solve(TilingProblem(tiles, board))
+    solutions = ts.get_all_solutions(TilingProblem(tiles, board))
     assert len(solutions) == 38
 
 if __name__ == "__main__":

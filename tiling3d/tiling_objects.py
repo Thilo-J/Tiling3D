@@ -17,7 +17,7 @@ class Tile:
     coordinates: list[tuple[int, int, int]]
 
 @dataclass
-class ShapeToFill:
+class Cuboid:
     """
     A class to represent a cuboid with some part filled in.
 
@@ -42,7 +42,7 @@ class TilingSolution:
     
     """
     solution_tiles: list[Tile]
-    board: ShapeToFill
+    board: Cuboid
     name:str = ""
 
 @dataclass
@@ -58,6 +58,6 @@ class TilingProblem:
     
     """
     tiles: list[Tile]
-    shape: ShapeToFill
+    shape: Cuboid
     solutions: list[TilingSolution] = field(default_factory=list)
     name: str = ""

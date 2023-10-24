@@ -1,4 +1,4 @@
-from tiling_objects import Tile
+from tiling3d.tiling_objects import Tile
 
 TILES = [
     Tile("t1",

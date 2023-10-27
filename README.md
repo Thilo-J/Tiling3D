@@ -1,10 +1,10 @@
 # Tiling 3D
 
-This package is for tiling cuboids with tiles/polyomino.
+This package is for tiling cuboids with tiles/polyominos.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install zdd_algorithms.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Tiling 3D.
 
 ```bash
 pip install tiling3d
